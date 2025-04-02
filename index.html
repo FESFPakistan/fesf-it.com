@@ -18,14 +18,20 @@
   </script>
   <style type="text/tailwindcss">
     @layer components {
-      .custom-link {
-        @apply p-4 text-white font-bold rounded-lg shadow flex flex-col items-center justify-center space-y-2;
+      .portal-link {
+        @apply p-4 text-white font-bold rounded-lg shadow flex flex-col items-center justify-center space-y-2 text-xl tracking-wide;
       }
       .section {
-        @apply grid grid-cols-3 gap-4 text-center;
+        @apply grid lg:grid-cols-3 grid-cols-2 gap-2 text-center;
       }
       .img-class {
         @apply w-auto py-2 h-20;
+      }
+      .test-link {
+        @apply bg-orange-500 hover:bg-orange-700 mx-2 px-2 py-1 my-auto border-black rounded shadow text-sm align-middle;
+      }
+      .live-link {
+        @apply bg-red-500 hover:bg-red-700 mx-2 px-2 py-1 border-black rounded shadow text-lg align-middle;
       }
     }
   </style>
@@ -34,94 +40,125 @@
 
 <body class="bg-gradient-to-r from-sky-500 to-blue-900 min-h-screen font-mono flex flex-col">
   <marquee class="font-bold text-lg bg-gray-200 text-black py-2 shadow-md">
-    Welcome to FESF-IT!
+    Welcome to FESF-IT.com Portal!
   </marquee>
 
   <div class="flex-grow max-w-4xl mx-auto mt-10 p-4 bg-white border border-gray-300 rounded-lg shadow-md">
-    <!-- Divider -->
-    <!-- <div class="relative flex py-9 items-center">
-      <div class="flex-grow border-t border-gray-400"></div>
-      <span class="flex-shrink mx-4 text-gray-800">Portals</span>
-      <div class="flex-grow border-t border-gray-400"></div>
-    </div> -->
     <div class="section">
-      <a href="https://erp.fesf-it.com/" target="_blank" rel="nofollow"
-        class="bg-cyan-700 custom-link hover:bg-cyan-800">
-        <img src="assets/procurement.png" alt="Icon" class="img-class">
-        <span>Procurement System</span>
+      <div class="portal-link bg-cyan-700 hover:bg-cyan-800">
+        <img src="assets/platforms/procurement.png" alt="Icon" class="img-class">
+        <div>Procurement Management System</div>
+        <div class="flex w-full mx-auto justify-center">
+          <a href="https://stage-erp.fesf-it.com/" target="_blank" rel="nofollow"
+             class="test-link">TEST</a>
+          <a href="https://erp.fesf-it.com/" target="_blank" rel="nofollow"
+             class="live-link">LIVE</a>
+        </div>
+      </div>
+      <div class="portal-link bg-sky-700 hover:bg-sky-800">
+        <img src="assets/platforms/sms.png" alt="Icon" class="img-class">
+        <div>DREAMS</div>
+        <div class="text-xs">Deaf Reach Education and <br>Academics Management System</div>
+        <div class="flex w-full mx-auto justify-center">
+          <a href="https://stage-dreams.fesf-it.com/" target="_blank" rel="nofollow"
+             class="test-link">TEST</a>
+          <a href="#" target="_blank" rel="nofollow"
+             class="live-link">LIVE</a>
+        </div>
+      </div>
+
+      <a href="https://kolibri.fesf-it.com/" target="_blank" rel="nofollow"
+         class="bg-amber-400 portal-link hover:bg-amber-500">
+        <img src="assets/platforms/kolibri.png" alt="Icon" class="img-class">
+        <span class="text-black">Kolibri</span>
       </a>
-      <a href="https://stage-sms.fesf-it.com/" target="_blank" rel="nofollow" class="bg-sky-800 custom-link hover:bg-sky-700">
-        <img src="assets/sms.png" class="img-class" />
-        <span>Student Management System (SMS)</span>
+<!--      <a href="https://stage-lessonplan.fesf-it.com/login" target="_blank" rel="nofollow"-->
+<!--        class="bg-cyan-700 portal-link  hover:bg-red-800">-->
+<!--        <img src="assets/platforms/lesson-plan.png" alt="Icon" class="img-class w-20 ">-->
+<!--        <span>Deaf Reach Lesson Planner</span>-->
+<!--        &lt;!&ndash; <span class="hidden group-hover:block">COMING SOON...</span> &ndash;&gt;-->
+<!--      </a>-->
+      <a href="https://isharay.pk/" target="_blank" rel="nofollow" class=" bg-green-900 portal-link hover:bg-green-950">
+        <img src="assets/platforms/isharay.png" alt="Icon" class="img-class">
+        <span>Isharay.pk</span>
       </a>
 
-      <a href="https://quiz.fesf-it.com/" target="_blank" rel="nofollow"
-        class="bg-blue-500 custom-link hover:bg-blue-600">
-        <img src="assets/quiz.png" alt="Icon" class="img-class">
+      <a href="https://quiz.psl.org.pk/" target="_blank" rel="nofollow"
+        class="bg-blue-500 portal-link hover:bg-blue-600">
+        <img src="assets/platforms/quiz.png" alt="Icon" class="img-class">
         <span>Quiz Portal</span>
       </a>
-      <a href="https://isharay.pk/" target="_blank" rel="nofollow" class=" bg-green-900 custom-link hover:bg-green-950">
-        <img src="assets/isharay.png" alt="Icon" class="img-class">
-        <span>Isharay</span>
+      <a href="https://new.psl.org.pk/" target="_blank" rel="nofollow"
+        class="bg-green-700 portal-link hover:bg-green-600">
+        <img src="assets/platforms/psl.png" alt="Icon" class="img-class">
+        <span>PSL 2.0 [beta]</span>
       </a>
-      <a href="https://kolibri.fesf-it.com/" target="_blank" rel="nofollow"
-        class="bg-amber-400 custom-link hover:bg-amber-500">
-        <img src="assets/kolibri.png" alt="Icon" class="img-class">
-        <span class="">Kolibri</span>
-      </a>
-
-      <a href="https://game.fesf-it.com/" target="_blank" rel="nofollow" class="bg-orange-500 custom-link hover:bg-orange-700">
-        <img src="assets/psl-games.png" alt="Icon" class="img-class">
-        <span>PSL Games</span>
-      </a>
-      <a href="https://psl.org.pk/" target="_blank" rel="nofollow" class="bg-green-700 custom-link hover:bg-green-600">
-        <img src="assets/psl.png" alt="Icon" class="img-class">
-        <span>PSL 2.0</span>
-      </a>
-      <a href="https://psl.org.pk/admin" target="_blank" rel="nofollow"
-        class="bg-green-500 custom-link hover:bg-green-600">
-        <img src="assets/admin-panel.png" alt="Icon" class="img-class">
-        <span>PSL Admin Panel</span>
-      </a>
-      <div href="#" target="_blank" rel="nofollow" class="bg-red-500 custom-link group hover:bg-red-800">
-        <img src="assets/champions.png" alt="Icon" class="img-class group-hover:hidden">
-        <span class="group-hover:hidden">Champions of Change</span>
-        <span class="hidden group-hover:block">COMING SOON...</span>
-      </div>
-
-      <div href="#" target="_blank" rel="nofollow" class="bg-rose-950 custom-link group hover:bg-stone-800">
-        <img src="assets/digital-kitchen.png" class="img-class group-hover:hidden" />
-        <span class="group-hover:hidden">Digital Kitchen</span>
-        <span class="hidden group-hover:block">COMING SOON...</span>
-      </div>
+<!--      <a href="https://backend.psl.org.pk/admin" target="_blank" rel="nofollow"-->
+<!--        class="bg-green-500 portal-link hover:bg-green-600">-->
+<!--        <img src="assets/platforms/admin-panel.png" alt="Icon" class="img-class">-->
+<!--        <span>PSL Admin Panel</span>-->
+<!--      </a>-->
+<!--      <a href="https://games.psl.org.pk/" target="_blank" rel="nofollow"-->
+<!--        class="bg-orange-500 portal-link hover:bg-orange-700">-->
+<!--        <img src="assets/platforms/psl-games.png" alt="Icon" class="img-class">-->
+<!--        <span>PSL Games</span>-->
+<!--      </a>-->
     </div>
 
     <!-- Divider -->
     <div class="relative flex py-2 mt-10 items-center">
       <div class="flex-grow border-t border-gray-400"></div>
-      <span class="flex-shrink mx-4 text-gray-800">Learn</span>
+      <span class="flex-shrink mx-4 text-gray-800 text-xl font-bold">Learn and Communicate</span>
       <div class="flex-grow border-t border-gray-400"></div>
     </div>
 
     <div class="section">
-      <a href="#" target="_blank" rel="nofollow"
-        class="bg-amber-400 custom-link hover:bg-amber-600">
-        <img src="assets/kolibri.png" alt="Icon" class="img-class">
+      <a href="https://fesforg.sharepoint.com/:f:/s/ResourcePack/EsyldAq24AhKh3E8foKyEHUB8foKMkLrZPa7GzKdjL5zqA?e=bq3dQL"
+         class="bg-orange-500 portal-link hover:bg-orange-600">
+        <img src="assets/platforms/meeting.png" alt="Icon" class="img-class">
+        <span>Deaf Reach <br>Resource Pack</span>
+      </a>
+      <a href="academic-coordination-meeting.html" class="bg-pink-500 portal-link hover:bg-pink-600">
+        <img src="assets/platforms/meeting.png" alt="Icon" class="img-class">
+        <span>Academic Coordination Meetings</span>
+      </a>
+      <a href="learn-section.html" class="bg-purple-500 portal-link hover:bg-purple-600">
+        <img src="assets/platforms/training-and-development.png" alt="Icon" class="img-class">
+        <span>Training and Development</span>
+      </a>
+      <a href="https://fesforg.sharepoint.com/:f:/s/dept-it2/En0ZkXZwtSJEqr00KFg9_DYB6pYDJQFJH1pwvVtl4xNz6A"
+        target="_blank" rel="nofollow" class="bg-amber-400 portal-link hover:bg-amber-600">
+        <img src="assets/platforms/kolibri.png" alt="Icon" class="img-class">
         <span class="text-black">Kolibri Tutorials</span>
       </a>
-      <a href="#" target="_blank" rel="nofollow"
-        class="bg-slate-200 custom-link hover:bg-slate-400">
-        <img src="assets/it-tutorials.png" alt="Icon" class="img-class">
+      <a href="https://fesforg.sharepoint.com/:f:/s/dept-it2/EsBBkz5DyqdJkn8AxTbOmsUBUpc0Ikeiw7ZqRoX84Tu-yQ"
+        target="_blank" rel="nofollow" class="bg-slate-200 portal-link hover:bg-slate-400">
+        <img src="assets/platforms/it-tutorials.png" alt="Icon" class="img-class">
         <span class="text-black">IT Tutorials</span>
       </a>
-      
-      <a href="https://learn.microsoft.com/en-us/" target="_blank" rel="nofollow"
-        class="bg-neutral-900 custom-link hover:bg-neutral-700">
-        <img src="assets/microsoft.png" alt="Icon" class="img-class">
-        <span>Microsoft Learn</span>
+      <a href="https://support.microsoft.com/en-us/training" target="_blank" rel="nofollow"
+        class="bg-neutral-900 portal-link hover:bg-neutral-700">
+        <img src="assets/platforms/microsoft.png" alt="Icon" class="img-class">
+        <span>Microsoft Office 365 Tutorials</span>
       </a>
-
     </div>
+
+    <div class="relative flex py-2 mt-10 items-center">
+      <div class="flex-grow border-t border-gray-400"></div>
+      <span class="flex-shrink mx-4 text-gray-800">Coming Soon / TODO / Future Plans</span>
+      <div class="flex-grow border-t border-gray-400"></div>
+    </div>
+
+    <div class="section">
+
+
+      <!--      <div href="#" target="_blank" rel="nofollow" class="bg-rose-950 portal-link group hover:bg-stone-800">-->
+      <!--        <img src="assets/platforms/digital-kitchen.png" class="img-class group-hover:hidden" />-->
+      <!--        <span class="group-hover:hidden">Digital Kitchen</span>-->
+      <!--        <span class="hidden group-hover:block">COMING SOON...</span>-->
+      <!--      </div>-->
+    </div>
+
 
     <!-- Divider -->
     <div class="relative flex py-2 mt-10 items-center">
@@ -131,18 +168,18 @@
     </div>
     <div class="flex justify-center gap-4">
       <a href="https://glpi.fesf-it.com/" target="_blank" rel="nofollow"
-        class="bg-sky-600 p-2 custom-link hover:bg-sky-500">
-        <img src="assets/glpi.png" alt="Icon" class="w-20 py-2 h-auto">
+        class="bg-sky-600 p-2 portal-link hover:bg-sky-500">
+        <img src="assets/platforms/glpi.png" alt="Icon" class="w-20 py-2 h-auto">
         <span>GLPI</span>
       </a>
       <a href="https://monitor.fesf-it.com/" target="_blank" rel="nofollow"
-        class="bg-red-700 p-2 custom-link hover:bg-red-900">
-        <img src="assets/zabbix.png" alt="Icon" class="w-20 py-2 h-auto">
+        class="bg-red-700 p-2 portal-link hover:bg-red-900">
+        <img src="assets/platforms/zabbix.png" alt="Icon" class="w-20 py-2 h-auto">
         <span>Zabbix</span>
       </a>
       <a href="#" target="_blank" rel="nofollow"
-        class="bg-white-700 border-2 border-blue-400 p-2 custom-link hover:bg-gray-200">
-        <img src="assets/rustdesk.png" alt="Icon" class="w-20 py-2 h-auto">
+        class="bg-white-700 border-2 border-blue-400 p-2 portal-link hover:bg-gray-200">
+        <img src="assets/platforms/rustdesk.png" alt="Icon" class="w-20 py-2 h-auto">
         <span class="text-black">RustDesk</span>
       </a>
     </div>

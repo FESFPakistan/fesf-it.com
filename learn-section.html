@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+      .portal-link {
+        @apply p-4 text-white font-bold rounded-lg shadow flex flex-col items-center justify-center space-y-2;
+      }
+      .section {
+          @apply grid lg:grid-cols-3 grid-cols-2 gap-2 text-center;
+      }
+      .img-class {
+        @apply w-auto py-2 h-20;
+      }
+    }
+  </style>
+    <title>FESF-IT.com - Training and Development</title>
+</head>
+
+<body class="bg-gradient-to-r from-purple-400 to-purple-700 min-h-screen font-mono flex flex-col">
+    <marquee class="font-bold text-lg bg-gray-200 text-black py-2 shadow-md">
+        Welcome to Training and Development Page!
+    </marquee>
+
+    <div class="flex-grow max-w-4xl mx-auto mt-10 p-4 bg-white border border-gray-300 rounded-lg shadow-md">
+        <div class="flex items-center space-x-3">
+            <a href="index.html">
+                <img src="assets/icons/left-arrow-1.png" alt="Icon" class="w-auto h-10">
+            </a>
+            <span class="font-bold">Back</span>
+        </div>
+
+        <!-- Divider -->
+        <div class="relative flex py-2 mt-10 items-center">
+            <div class="flex-grow border-t border-gray-400"></div>
+        </div>
+
+        <div class="section mt-10 mb-10 grid-cols-2">
+            <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YWM2YjBhODctNDRjZi00OWU3LTlhMzQtOTE1Y2UwZDU2ZDA0%40thread.v2/0?context=%7b%22Tid%22%3a%226e70e192-5738-4544-9036-efb9dd074a81%22%2c%22Oid%22%3a%2205c8e57a-456d-4d1c-8048-ec09207b9340%22%7d" target="_blank" rel="nofollow" class="bg-cyan-500 min-h-24 portal-link hover:bg-cyan-600">
+                <!-- <img src="" alt="Icon" class="img-class"> -->
+                <span>PSL PARENTS TOT</span>
+            </a>
+            <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDRmODIyMTktNmE1ZS00YTJmLTkyZjctNTdkMzk5YzA4ZTM0%40thread.v2/0?context=%7b%22Tid%22%3a%226e70e192-5738-4544-9036-efb9dd074a81%22%2c%22Oid%22%3a%2205c8e57a-456d-4d1c-8048-ec09207b9340%22%7d" target="_blank" rel="nofollow" class="bg-blue-600 min-h-24 portal-link hover:bg-blue-700">
+                <!-- <img src="" alt="Icon" class="img-class"> -->
+                <span>PARENTS EDUCATION / IFE SKILLS</span>
+            </a>
+            <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ODUyMTc2ODQtODliNS00MDg4LWI5OGYtMjkyZTNhNDQ2MmNm%40thread.v2/0?context=%7b%22Tid%22%3a%226e70e192-5738-4544-9036-efb9dd074a81%22%2c%22Oid%22%3a%2205c8e57a-456d-4d1c-8048-ec09207b9340%22%7d" target="_blank" rel="nofollow" class="bg-amber-500 min-h-24 portal-link hover:bg-amber-600">
+                <!-- <img src="" alt="Icon" class="img-class"> -->
+                <span>PSL TEACHERS TOT</span>
+            </a>
+            <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MDVjMjI5ZDItYTU3Ny00OWUyLThmNWEtYjVhYTBjYzM1NTRk%40thread.v2/0?context=%7b%22Tid%22%3a%226e70e192-5738-4544-9036-efb9dd074a81%22%2c%22Oid%22%3a%2205c8e57a-456d-4d1c-8048-ec09207b9340%22%7d" target="_blank" rel="nofollow" class="bg-green-700 min-h-24 portal-link hover:bg-green-800">
+                <!-- <img src="" alt="Icon" class="img-class"> -->
+                <span>TEACHERS PROFESSIONAL DEVELOPMENT TOT</span>
+            </a>
+
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="max-w-screen-lg mx-auto text-center space-y-2">
+            <p class="text-sm">© 2024 FESF-IT. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
