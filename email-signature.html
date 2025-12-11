@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -113,7 +113,7 @@
                     <button onclick="generateSignature()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg">
                         Generate Signature
                     </button>
-                    <button onclick="copySignature()" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg">
+                    <button onclick="copySignature(event)" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg">
                         Copy to Clipboard
                     </button>
                 </div>
@@ -251,7 +251,7 @@
                     </td>`;
             }
             if (whatsapp) {
-                const whatsappUrl = whatsapp.startsWith('http') ? whatsapp : `http://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`;
+                const whatsappUrl = whatsapp.startsWith('http') ? whatsapp : `https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`;
                 socialLinks += `
                     <td style="padding: 0 8px 0 0;">
                         <a href="${whatsappUrl}" style="text-decoration: none;">
@@ -316,7 +316,7 @@
             document.getElementById('htmlCode').value = signatureHTML;
         }
 
-        function copySignature() {
+        function copySignature(event) {
             const htmlCode = document.getElementById('htmlCode');
             htmlCode.select();
             htmlCode.setSelectionRange(0, 99999); // For mobile devices
@@ -336,9 +336,7 @@
                         btn.classList.add('bg-green-600', 'hover:bg-green-700');
                     }, 2000);
                 }).catch(function(err) {
-                    // Fallback for older browsers
-                    document.execCommand('copy');
-                    alert('Signature HTML copied to clipboard!');
+                    alert('Failed to copy: ' + err.message + '. Please select and copy manually.');
                 });
             } catch (err) {
                 alert('Failed to copy. Please select and copy manually.');
