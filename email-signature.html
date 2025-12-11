@@ -92,31 +92,26 @@
                     <textarea id="address" class="input-field" rows="2" placeholder="e.g., Office Address"></textarea>
                 </div>
 
-                <div class="section-title mt-8">Social Media Links</div>
-
                 <div>
-                    <label for="facebook" class="label-text">Facebook URL</label>
-                    <input type="url" id="facebook" class="input-field" value="https://www.facebook.com/deafreachprogram">
-                </div>
-
-                <div>
-                    <label for="linkedin" class="label-text">LinkedIn URL</label>
-                    <input type="url" id="linkedin" class="input-field" value="https://www.linkedin.com/company/fesf/posts/?feedView=all">
+                    <label for="whatsapp" class="label-text">WhatsApp Number (with country code)</label>
+                    <input type="tel" id="whatsapp" class="input-field" placeholder="e.g., 923332405531">
                 </div>
 
                 <div class="flex gap-4 mt-8">
                     <button onclick="generateSignature()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg">
                         Generate Signature
                     </button>
-                    <button onclick="copySignature(event)" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg">
-                        Copy Signature
-                    </button>
                 </div>
             </div>
 
             <!-- Preview Area -->
             <div class="space-y-4">
-                <div class="section-title">Preview</div>
+                <div class="flex justify-between items-center">
+                    <div class="section-title">Preview</div>
+                    <button onclick="copySignature(event)" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg shadow-lg">
+                        Copy Signature
+                    </button>
+                </div>
                 <div class="border-2 border-gray-300 rounded-lg p-4 bg-white min-h-96">
                     <div id="signaturePreview"></div>
                 </div>
@@ -157,8 +152,7 @@
             const email = document.getElementById('email').value || 'your.email@fesf.org.pk';
             const website = document.getElementById('website').value || 'https://www.deafreach.com';
             const address = document.getElementById('address').value;
-            const facebook = document.getElementById('facebook').value;
-            const linkedin = document.getElementById('linkedin').value;
+            const whatsapp = document.getElementById('whatsapp').value;
 
             // Build contact info rows
             let contactRows = '';
@@ -229,30 +223,31 @@
                 </tr>`;
             }
 
-            // Build social media links
+            // Build social media links with hardcoded URLs and colors
             let socialLinks = '';
-            if (facebook) {
+            
+            // Facebook - hardcoded
+            socialLinks += `
+                <td style="padding: 0 8px 0 0;">
+                    <a href="https://www.facebook.com/deafreachprogram" style="text-decoration: none; background-color: #0866ff; display: inline-block; padding: 4px; border-radius: 4px;">
+                        <img src="assets/signature-generator-images/facebook-icon.png" alt="Facebook" width="20" height="20" style="display: block; border: 0;">
+                    </a>
+                </td>`;
+            
+            // LinkedIn - hardcoded
+            socialLinks += `
+                <td style="padding: 0 8px 0 0;">
+                    <a href="https://www.linkedin.com/company/fesf/posts/?feedView=all" style="text-decoration: none; background-color: #0077b5; display: inline-block; padding: 4px; border-radius: 4px;">
+                        <img src="assets/signature-generator-images/linkedin-icon.png" alt="LinkedIn" width="20" height="20" style="display: block; border: 0;">
+                    </a>
+                </td>`;
+            
+            // WhatsApp - from user input
+            if (whatsapp) {
+                const whatsappUrl = `https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`;
                 socialLinks += `
                     <td style="padding: 0 8px 0 0;">
-                        <a href="${facebook}" style="text-decoration: none;">
-                            <img src="assets/signature-generator-images/facebook-icon.png" alt="Facebook" width="20" height="20" style="display: block; border: 0;">
-                        </a>
-                    </td>`;
-            }
-            if (linkedin) {
-                socialLinks += `
-                    <td style="padding: 0 8px 0 0;">
-                        <a href="${linkedin}" style="text-decoration: none;">
-                            <img src="assets/signature-generator-images/linkedin-icon.png" alt="LinkedIn" width="20" height="20" style="display: block; border: 0;">
-                        </a>
-                    </td>`;
-            }
-            if (mobile) {
-                // WhatsApp link using the mobile number
-                const whatsappUrl = `https://wa.me/${mobile.replace(/[^0-9]/g, '')}`;
-                socialLinks += `
-                    <td style="padding: 0 8px 0 0;">
-                        <a href="${whatsappUrl}" style="text-decoration: none;">
+                        <a href="${whatsappUrl}" style="text-decoration: none; background-color: #26cc64; display: inline-block; padding: 4px; border-radius: 4px;">
                             <img src="assets/signature-generator-images/whatsapp-icon.png" alt="WhatsApp" width="20" height="20" style="display: block; border: 0;">
                         </a>
                     </td>`;
