@@ -1,0 +1,355 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {}
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .input-field {
+                @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+            }
+            .label-text {
+                @apply block text-sm font-medium text-gray-700 mb-1;
+            }
+            .section-title {
+                @apply text-xl font-bold text-gray-800 mb-4;
+            }
+        }
+    </style>
+    <title>FESF-IT.com - Email Signature Generator</title>
+</head>
+
+<body class="bg-gradient-to-r from-blue-400 to-blue-700 min-h-screen font-mono flex flex-col">
+    <marquee class="font-bold text-lg bg-gray-200 text-black py-2 shadow-md">
+        Email Signature Generator - Create Your Professional Email Signature
+    </marquee>
+
+    <div class="flex-grow max-w-6xl mx-auto mt-10 p-6 bg-white border border-gray-300 rounded-lg shadow-md mb-10">
+        <div class="flex items-center space-x-3 mb-6">
+            <a href="index.html">
+                <img src="assets/icons/left-arrow-1.png" alt="Back" class="w-auto h-10">
+            </a>
+            <span class="font-bold">Back to Home</span>
+        </div>
+
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Email Signature Generator</h1>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Input Form -->
+            <div class="space-y-6">
+                <div class="section-title">Personal Information</div>
+                
+                <div>
+                    <label for="fullName" class="label-text">Full Name *</label>
+                    <input type="text" id="fullName" class="input-field" placeholder="e.g., John Doe">
+                </div>
+
+                <div>
+                    <label for="jobTitle" class="label-text">Job Title *</label>
+                    <input type="text" id="jobTitle" class="input-field" placeholder="e.g., IT Manager">
+                </div>
+
+                <div>
+                    <label for="department" class="label-text">Department</label>
+                    <input type="text" id="department" class="input-field" placeholder="e.g., Information Technology">
+                </div>
+
+                <div class="section-title mt-8">Contact Information</div>
+
+                <div>
+                    <label for="phone" class="label-text">Phone Number</label>
+                    <input type="tel" id="phone" class="input-field" placeholder="e.g., +92 333 1234567">
+                </div>
+
+                <div>
+                    <label for="mobile" class="label-text">Mobile Number</label>
+                    <input type="tel" id="mobile" class="input-field" placeholder="e.g., +92 333 1234567">
+                </div>
+
+                <div>
+                    <label for="email" class="label-text">Email Address *</label>
+                    <input type="email" id="email" class="input-field" placeholder="e.g., john.doe@fesf.org.pk">
+                </div>
+
+                <div>
+                    <label for="website" class="label-text">Website</label>
+                    <input type="url" id="website" class="input-field" value="https://www.deafreach.com">
+                </div>
+
+                <div>
+                    <label for="address" class="label-text">Address</label>
+                    <textarea id="address" class="input-field" rows="2" placeholder="e.g., Office Address"></textarea>
+                </div>
+
+                <div class="section-title mt-8">Social Media Links</div>
+
+                <div>
+                    <label for="facebook" class="label-text">Facebook URL</label>
+                    <input type="url" id="facebook" class="input-field" value="https://www.facebook.com/deafreachprogram">
+                </div>
+
+                <div>
+                    <label for="linkedin" class="label-text">LinkedIn URL</label>
+                    <input type="url" id="linkedin" class="input-field" value="https://www.linkedin.com/company/fesf/posts/?feedView=all">
+                </div>
+
+                <div>
+                    <label for="whatsapp" class="label-text">WhatsApp Number (with country code)</label>
+                    <input type="tel" id="whatsapp" class="input-field" value="923332405531" placeholder="e.g., 923332405531">
+                </div>
+
+                <div class="flex gap-4 mt-8">
+                    <button onclick="generateSignature()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg">
+                        Generate Signature
+                    </button>
+                    <button onclick="copySignature()" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg">
+                        Copy to Clipboard
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preview Area -->
+            <div class="space-y-4">
+                <div class="section-title">Preview</div>
+                <div class="border-2 border-gray-300 rounded-lg p-4 bg-gray-50 min-h-96">
+                    <div id="signaturePreview"></div>
+                </div>
+                
+                <div class="section-title">HTML Code</div>
+                <div class="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
+                    <textarea id="htmlCode" readonly class="w-full h-64 font-mono text-xs p-2 bg-white border border-gray-200 rounded"></textarea>
+                </div>
+
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                    <p class="text-sm text-blue-800">
+                        <strong>How to use:</strong>
+                        <ol class="list-decimal ml-5 mt-2 space-y-1">
+                            <li>Fill in your information in the form</li>
+                            <li>Click "Generate Signature" to create your signature</li>
+                            <li>Click "Copy to Clipboard" to copy the HTML</li>
+                            <li>Paste it into your email client's signature settings</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="max-w-screen-lg mx-auto text-center space-y-2">
+            <p class="text-sm">© 2024 FESF-IT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Generate signature on page load with default values
+        window.addEventListener('DOMContentLoaded', function() {
+            generateSignature();
+        });
+
+        function generateSignature() {
+            const fullName = document.getElementById('fullName').value || 'Your Name';
+            const jobTitle = document.getElementById('jobTitle').value || 'Your Job Title';
+            const department = document.getElementById('department').value;
+            const phone = document.getElementById('phone').value;
+            const mobile = document.getElementById('mobile').value;
+            const email = document.getElementById('email').value || 'your.email@fesf.org.pk';
+            const website = document.getElementById('website').value || 'https://www.deafreach.com';
+            const address = document.getElementById('address').value;
+            const facebook = document.getElementById('facebook').value;
+            const linkedin = document.getElementById('linkedin').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+
+            // Build contact info rows
+            let contactRows = '';
+
+            // Phone/Mobile row
+            if (phone || mobile) {
+                const phoneIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0066cc" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>`;
+                const phoneText = phone && mobile ? `${phone} | ${mobile}` : (phone || mobile);
+                contactRows += `
+                <tr>
+                    <td style="padding: 4px 8px 4px 0; vertical-align: middle;">
+                        ${phoneIcon}
+                    </td>
+                    <td style="padding: 4px 0; font-family: Arial, sans-serif; font-size: 13px; color: #333;">
+                        ${phoneText}
+                    </td>
+                </tr>`;
+            }
+
+            // Email row
+            if (email) {
+                const emailIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0066cc" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>`;
+                contactRows += `
+                <tr>
+                    <td style="padding: 4px 8px 4px 0; vertical-align: middle;">
+                        ${emailIcon}
+                    </td>
+                    <td style="padding: 4px 0; font-family: Arial, sans-serif; font-size: 13px; color: #333;">
+                        <a href="mailto:${email}" style="color: #0066cc; text-decoration: none;">${email}</a>
+                    </td>
+                </tr>`;
+            }
+
+            // Website row
+            if (website) {
+                const websiteIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0066cc" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/></svg>`;
+                const websiteDisplay = website.replace(/^https?:\/\/(www\.)?/, '');
+                contactRows += `
+                <tr>
+                    <td style="padding: 4px 8px 4px 0; vertical-align: middle;">
+                        ${websiteIcon}
+                    </td>
+                    <td style="padding: 4px 0; font-family: Arial, sans-serif; font-size: 13px; color: #333;">
+                        <a href="${website}" style="color: #0066cc; text-decoration: none;">${websiteDisplay}</a>
+                    </td>
+                </tr>`;
+            }
+
+            // Address row
+            if (address) {
+                const addressIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0066cc" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>`;
+                contactRows += `
+                <tr>
+                    <td style="padding: 4px 8px 4px 0; vertical-align: top;">
+                        ${addressIcon}
+                    </td>
+                    <td style="padding: 4px 0; font-family: Arial, sans-serif; font-size: 13px; color: #333;">
+                        ${address.replace(/\n/g, '<br>')}
+                    </td>
+                </tr>`;
+            }
+
+            // Build social media links
+            let socialLinks = '';
+            if (facebook) {
+                socialLinks += `
+                    <td style="padding: 0 8px 0 0;">
+                        <a href="${facebook}" style="text-decoration: none;">
+                            <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/facebook-icon-2x.png" alt="Facebook" width="20" height="20" style="display: block; border: 0;">
+                        </a>
+                    </td>`;
+            }
+            if (linkedin) {
+                socialLinks += `
+                    <td style="padding: 0 8px 0 0;">
+                        <a href="${linkedin}" style="text-decoration: none;">
+                            <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/linkedin-icon-2x.png" alt="LinkedIn" width="20" height="20" style="display: block; border: 0;">
+                        </a>
+                    </td>`;
+            }
+            if (whatsapp) {
+                const whatsappUrl = whatsapp.startsWith('http') ? whatsapp : `http://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`;
+                socialLinks += `
+                    <td style="padding: 0 8px 0 0;">
+                        <a href="${whatsappUrl}" style="text-decoration: none;">
+                            <img src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/whatsapp-icon-2x.png" alt="WhatsApp" width="20" height="20" style="display: block; border: 0;">
+                        </a>
+                    </td>`;
+            }
+
+            // Generate the complete signature HTML
+            const signatureHTML = `<table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, sans-serif; line-height: 1.4;">
+    <tbody>
+        <tr>
+            <td style="padding-bottom: 16px;">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td style="padding-right: 16px; vertical-align: top;">
+                                <h2 style="margin: 0 0 4px 0; font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; color: #222;">${fullName}</h2>
+                                <p style="margin: 0 0 8px 0; font-family: Arial, sans-serif; font-size: 14px; color: #666; font-style: italic;">
+                                    ${jobTitle}${department ? ' | ' + department : ''}
+                                </p>
+                            </td>
+                            <td style="padding: 0 16px; border-left: 3px solid #0066cc;">
+                                <table cellpadding="0" cellspacing="0" border="0">
+                                    <tbody>
+                                        ${contactRows}
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-top: 16px; border-top: 2px solid #e0e0e0;">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td style="padding-right: 16px; vertical-align: middle;">
+                                <img src="https://deafreach.com/wp-content/uploads/2021/06/Deafreach-logo-01-.svg" alt="Deaf Reach" width="120" style="display: block; border: 0;">
+                            </td>
+                            <td style="vertical-align: middle;">
+                                <table cellpadding="0" cellspacing="0" border="0">
+                                    <tbody>
+                                        <tr>
+                                            ${socialLinks}
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>`;
+
+            // Update preview and code areas
+            document.getElementById('signaturePreview').innerHTML = signatureHTML;
+            document.getElementById('htmlCode').value = signatureHTML;
+        }
+
+        function copySignature() {
+            const htmlCode = document.getElementById('htmlCode');
+            htmlCode.select();
+            htmlCode.setSelectionRange(0, 99999); // For mobile devices
+
+            try {
+                navigator.clipboard.writeText(htmlCode.value).then(function() {
+                    // Show success message
+                    const btn = event.target;
+                    const originalText = btn.textContent;
+                    btn.textContent = '✓ Copied!';
+                    btn.classList.remove('bg-green-600', 'hover:bg-green-700');
+                    btn.classList.add('bg-green-800');
+                    
+                    setTimeout(function() {
+                        btn.textContent = originalText;
+                        btn.classList.remove('bg-green-800');
+                        btn.classList.add('bg-green-600', 'hover:bg-green-700');
+                    }, 2000);
+                }).catch(function(err) {
+                    // Fallback for older browsers
+                    document.execCommand('copy');
+                    alert('Signature HTML copied to clipboard!');
+                });
+            } catch (err) {
+                alert('Failed to copy. Please select and copy manually.');
+            }
+        }
+
+        // Auto-generate on input change
+        document.querySelectorAll('input, textarea').forEach(function(element) {
+            element.addEventListener('input', generateSignature);
+        });
+    </script>
+</body>
+
+</html>
