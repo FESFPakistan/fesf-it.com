@@ -31,135 +31,125 @@
 </head>
 
 <body class="bg-gradient-to-r from-blue-400 to-blue-700 min-h-screen font-mono flex flex-col">
-    <marquee class="font-bold text-lg bg-gray-200 text-black py-2 shadow-md">
-        Email Signature Generator - Create Your Professional Email Signature
-    </marquee>
+<marquee class="font-bold text-lg bg-gray-200 text-black py-2 shadow-md">
+    Email Signature Generator - Create Your Professional Email Signature
+</marquee>
 
-    <div class="flex-grow max-w-6xl mx-auto mt-10 p-6 bg-white border border-gray-300 rounded-lg shadow-md mb-10">
-        <div class="flex items-center space-x-3 mb-6">
-            <a href="index.html">
-                <img src="assets/icons/left-arrow-1.png" alt="Back" class="w-auto h-10">
-            </a>
-            <span class="font-bold">Back to Home</span>
-        </div>
+<div class="flex-grow max-w-6xl mx-auto mt-10 p-6 bg-white border border-gray-300 rounded-lg shadow-md mb-10">
+    <div class="flex items-center space-x-3 mb-6">
+        <a href="index.html">
+            <img src="assets/icons/left-arrow-1.png" alt="Back" class="w-auto h-10">
+        </a>
+        <span class="font-bold">Back to Home</span>
+    </div>
 
-        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Email Signature Generator</h1>
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Email Signature Generator</h1>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Input Form -->
-            <div class="space-y-6">
-                <div class="section-title">Personal Information</div>
-                
-                <div>
-                    <label for="fullName" class="label-text">Full Name *</label>
-                    <input type="text" id="fullName" class="input-field" placeholder="e.g., John Doe">
-                </div>
+    <div class="grid md:grid-cols-2 gap-8">
+        <!-- Input Form -->
+        <div class="space-y-6">
+            <div class="section-title">Personal Information</div>
 
-                <div>
-                    <label for="jobTitle" class="label-text">Job Title *</label>
-                    <input type="text" id="jobTitle" class="input-field" placeholder="e.g., IT Manager">
-                </div>
-
-                <div>
-                    <label for="department" class="label-text">Department</label>
-                    <input type="text" id="department" class="input-field" placeholder="e.g., Information Technology">
-                </div>
-
-                <div class="section-title mt-8">Contact Information</div>
-
-                <div>
-                    <label for="mobile" class="label-text">Mobile/WhatsApp</label>
-                    <input type="tel" id="mobile" class="input-field" placeholder="e.g., +92 333 1234567">
-                </div>
-
-                <div>
-                    <label for="phone" class="label-text">Mobile / Phone 2</label>
-                    <input type="tel" id="phone" class="input-field" placeholder="e.g., +92 333 1234567">
-                </div>
-
-                <div>
-                    <label for="email" class="label-text">Email Address *</label>
-                    <input type="email" id="email" class="input-field" placeholder="e.g., john.doe@fesf.org.pk">
-                </div>
-
-                <div>
-                    <label for="website" class="label-text">Website</label>
-                    <input type="url" id="website" class="input-field" value="https://www.deafreach.com">
-                </div>
-
-                <div>
-                    <label for="address" class="label-text">Address</label>
-                    <textarea id="address" class="input-field" rows="2" placeholder="e.g., Office Address"></textarea>
-                </div>
-
-                <div>
-                    <label for="whatsapp" class="label-text">WhatsApp Number (with country code)</label>
-                    <input type="tel" id="whatsapp" class="input-field" placeholder="e.g., 923332405531">
-                </div>
-
-                <div class="flex gap-4 mt-8">
-                    <button onclick="generateSignature()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg">
-                        Generate Signature
-                    </button>
-                </div>
+            <div>
+                <label for="fullName" class="label-text">Full Name *</label>
+                <input type="text" id="fullName" class="input-field" placeholder="e.g., John Doe">
             </div>
 
-            <!-- Preview Area -->
-            <div class="space-y-4">
-                <div class="flex justify-between items-center">
-                    <div class="section-title">Preview</div>
-                    <button onclick="copySignature(event)" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg shadow-lg">
-                        Copy Signature
-                    </button>
-                </div>
-                <div class="border-2 border-gray-300 rounded-lg p-4 bg-white min-h-96">
-                    <div id="signaturePreview"></div>
-                </div>
+            <div>
+                <label for="jobTitle" class="label-text">Job Title *</label>
+                <input type="text" id="jobTitle" class="input-field" placeholder="e.g., IT Manager">
+            </div>
 
-                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                    <p class="text-sm text-blue-800">
-                        <strong>How to use:</strong>
-                        <ol class="list-decimal ml-5 mt-2 space-y-1">
-                            <li>Fill in your information in the form</li>
-                            <li>Click "Generate Signature" to create your signature</li>
-                            <li>Click "Copy Signature" to copy it</li>
-                            <li>Paste it into your email client's signature settings</li>
-                        </ol>
-                    </p>
-                </div>
+            <div>
+                <label for="department" class="label-text">Department</label>
+                <input type="text" id="department" class="input-field" placeholder="e.g., Information Technology">
+            </div>
+
+            <div class="section-title mt-8">Contact Information</div>
+
+            <div>
+                <label for="mobile" class="label-text">Mobile/WhatsApp</label>
+                <input type="tel" id="mobile" class="input-field" placeholder="e.g., +92 333 1234567">
+            </div>
+
+            <div>
+                <label for="phone" class="label-text">Mobile / Phone 2</label>
+                <input type="tel" id="phone" class="input-field" placeholder="e.g., +92 333 1234567">
+            </div>
+
+            <div>
+                <label for="email" class="label-text">Email Address *</label>
+                <input type="email" id="email" class="input-field" placeholder="e.g., john.doe@fesf.org.pk">
+            </div>
+
+            <div>
+                <label for="website" class="label-text">Website</label>
+                <input type="url" id="website" class="input-field" value="https://www.deafreach.com">
+            </div>
+
+            <div>
+                <label for="address" class="label-text">Address</label>
+                <textarea id="address" class="input-field" rows="2" placeholder="e.g., Office Address"></textarea>
+            </div>
+
+        </div>
+
+        <!-- Preview Area -->
+        <div class="space-y-4">
+            <div class="flex justify-between items-center">
+                <div class="section-title">Preview</div>
+                <button onclick="copySignature(event)" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg shadow-lg">
+                    Copy Signature
+                </button>
+            </div>
+            <div class="border-2 border-gray-300 rounded-lg p-4 bg-white min-h-96">
+                <div id="signaturePreview"></div>
+            </div>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                <p class="text-sm text-blue-800">
+                    <strong>How to use:</strong>
+                <ol class="list-decimal ml-5 mt-2 space-y-1">
+                    <li>Fill in your information in the form</li>
+                    <li>Click "Generate Signature" to create your signature</li>
+                    <li>Click "Copy Signature" to copy it</li>
+                    <li>Paste it into your email client's signature settings</li>
+                </ol>
+                </p>
             </div>
         </div>
     </div>
+</div>
 
-    <footer class="bg-gray-800 text-white py-4">
-        <div class="max-w-screen-lg mx-auto text-center space-y-2">
-            <p class="text-sm">© 2024 FESF-IT. All rights reserved.</p>
-        </div>
-    </footer>
+<footer class="bg-gray-800 text-white py-4">
+    <div class="max-w-screen-lg mx-auto text-center space-y-2">
+        <p class="text-sm">© 2025 FESF-IT. All rights reserved.</p>
+    </div>
+</footer>
 
-    <script>
-        // Generate signature on page load with default values
-        window.addEventListener('DOMContentLoaded', function() {
-            generateSignature();
-        });
+<script>
+    // Generate signature on page load with default values
+    window.addEventListener('DOMContentLoaded', function() {
+        generateSignature();
+    });
 
-        function generateSignature() {
-            const fullName = document.getElementById('fullName').value || 'Your Name';
-            const jobTitle = document.getElementById('jobTitle').value || 'Your Job Title';
-            const department = document.getElementById('department').value;
-            const mobile = document.getElementById('mobile').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value || 'your.email@fesf.org.pk';
-            const website = document.getElementById('website').value || 'https://www.deafreach.com';
-            const address = document.getElementById('address').value;
-            const whatsapp = document.getElementById('whatsapp').value;
+    function generateSignature() {
+        const fullName = document.getElementById('fullName').value || 'Your Name';
+        const jobTitle = document.getElementById('jobTitle').value || 'Your Job Title';
+        const department = document.getElementById('department').value;
+        const mobile = document.getElementById('mobile').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value || 'your.email@fesf.org.pk';
+        const website = document.getElementById('website').value || 'https://www.deafreach.com';
+        const address = document.getElementById('address').value;
+        const whatsapp = document.getElementById('mobile').value;
 
-            // Build contact info rows
-            let contactRows = '';
+        // Build contact info rows
+        let contactRows = '';
 
-            // Mobile/WhatsApp row (primary)
-            if (mobile) {
-                contactRows += `
+        // Mobile/WhatsApp row (primary)
+        if (mobile) {
+            contactRows += `
                 <tr>
                     <td style="padding: 4px 8px 4px 0; vertical-align: middle;">
                         <img src="assets/signature-generator-images/phone-icon.png" alt="" width="16" height="16" style="display: block; border: 0;">
@@ -168,11 +158,11 @@
                         ${mobile}
                     </td>
                 </tr>`;
-            }
+        }
 
-            // Phone 2 row (secondary)
-            if (phone) {
-                contactRows += `
+        // Phone 2 row (secondary)
+        if (phone) {
+            contactRows += `
                 <tr>
                     <td style="padding: 4px 8px 4px 0; vertical-align: middle;">
                         <img src="assets/signature-generator-images/phone-icon.png" alt="" width="16" height="16" style="display: block; border: 0;">
@@ -181,11 +171,11 @@
                         ${phone}
                     </td>
                 </tr>`;
-            }
+        }
 
-            // Email row
-            if (email) {
-                contactRows += `
+        // Email row
+        if (email) {
+            contactRows += `
                 <tr>
                     <td style="padding: 4px 8px 4px 0; vertical-align: middle;">
                         <img src="assets/signature-generator-images/email-icon.png" alt="" width="16" height="16" style="display: block; border: 0;">
@@ -194,12 +184,12 @@
                         <a href="mailto:${email}" style="color: #0066cc; text-decoration: none;">${email}</a>
                     </td>
                 </tr>`;
-            }
+        }
 
-            // Website row
-            if (website) {
-                const websiteDisplay = website.replace(/^https?:\/\/(www\.)?/, '');
-                contactRows += `
+        // Website row
+        if (website) {
+            const websiteDisplay = website.replace(/^https?:\/\/(www\.)?/, '');
+            contactRows += `
                 <tr>
                     <td style="padding: 4px 8px 4px 0; vertical-align: middle;">
                         <img src="assets/signature-generator-images/link-icon.png" alt="" width="16" height="16" style="display: block; border: 0;">
@@ -208,11 +198,11 @@
                         <a href="${website}" style="color: #0066cc; text-decoration: none;">${websiteDisplay}</a>
                     </td>
                 </tr>`;
-            }
+        }
 
-            // Address row
-            if (address) {
-                contactRows += `
+        // Address row
+        if (address) {
+            contactRows += `
                 <tr>
                     <td style="padding: 4px 8px 4px 0; vertical-align: top;">
                         <img src="assets/signature-generator-images/address-icon.png" alt="" width="16" height="16" style="display: block; border: 0;">
@@ -221,40 +211,40 @@
                         ${address.replace(/\n/g, '<br>')}
                     </td>
                 </tr>`;
-            }
+        }
 
-            // Build social media links with hardcoded URLs and colors
-            let socialLinks = '';
-            
-            // Facebook - hardcoded
-            socialLinks += `
+        // Build social media links with hardcoded URLs and colors
+        let socialLinks = '';
+
+        // Facebook - hardcoded
+        socialLinks += `
                 <td style="padding: 0 8px 0 0;">
-                    <a href="https://www.facebook.com/deafreachprogram" style="text-decoration: none; background-color: #0866ff; display: inline-block; padding: 4px; border-radius: 4px;">
-                        <img src="assets/signature-generator-images/facebook-icon.png" alt="Facebook" width="20" height="20" style="display: block; border: 0;">
+                    <a href="https://www.facebook.com/deafreachprogram" >
+                        <img src="assets/signature-generator-images/facebook-icon.png" alt="Facebook" width="36" style="background-color: #0866ff; display: block;">
                     </a>
                 </td>`;
-            
-            // LinkedIn - hardcoded
-            socialLinks += `
+
+        // LinkedIn - hardcoded
+        socialLinks += `
                 <td style="padding: 0 8px 0 0;">
-                    <a href="https://www.linkedin.com/company/fesf/posts/?feedView=all" style="text-decoration: none; background-color: #0077b5; display: inline-block; padding: 4px; border-radius: 4px;">
-                        <img src="assets/signature-generator-images/linkedin-icon.png" alt="LinkedIn" width="20" height="20" style="display: block; border: 0;">
+                    <a href="https://www.linkedin.com/company/fesf/posts/?feedView=all">
+                        <img src="assets/signature-generator-images/linkedin-icon.png" alt="LinkedIn" width="40" style="background-color: #0077b5; display: block;">
                     </a>
                 </td>`;
-            
-            // WhatsApp - from user input
-            if (whatsapp) {
-                const whatsappUrl = `https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`;
-                socialLinks += `
+
+        // WhatsApp - from user input
+        if (whatsapp) {
+            const whatsappUrl = `https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`;
+            socialLinks += `
                     <td style="padding: 0 8px 0 0;">
-                        <a href="${whatsappUrl}" style="text-decoration: none; background-color: #26cc64; display: inline-block; padding: 4px; border-radius: 4px;">
-                            <img src="assets/signature-generator-images/whatsapp-icon.png" alt="WhatsApp" width="20" height="20" style="display: block; border: 0;">
+                        <a href="${whatsappUrl}">
+                            <img src="assets/signature-generator-images/whatsapp-icon.png" alt="WhatsApp" width="40" style="background-color: #26cc64; display: block;">
                         </a>
                     </td>`;
-            }
+        }
 
-            // Generate the complete signature HTML
-            const signatureHTML = `<table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, sans-serif; line-height: 1.4;">
+        // Generate the complete signature HTML
+        const signatureHTML = `<table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, sans-serif; line-height: 1.4;">
     <tbody>
         <tr>
             <td style="padding-bottom: 16px;">
@@ -285,7 +275,7 @@
                     <tbody>
                         <tr>
                             <td style="padding-right: 16px; vertical-align: middle;">
-                                <img src="assets/signature-generator-images/deafreach-logo.svg" alt="Deaf Reach" width="120" style="display: block; border: 0;">
+                                <img src="assets/signature-generator-images/deafreach-logo.svg" alt="Deaf Reach" width="180" style="display: block; border: 0; margin-right:50px">
                             </td>
                             <td style="vertical-align: middle;">
                                 <table cellpadding="0" cellspacing="0" border="0">
@@ -304,51 +294,51 @@
     </tbody>
 </table>`;
 
-            // Update preview
-            document.getElementById('signaturePreview').innerHTML = signatureHTML;
-        }
+        // Update preview
+        document.getElementById('signaturePreview').innerHTML = signatureHTML;
+    }
 
-        function copySignature(event) {
-            const signaturePreview = document.getElementById('signaturePreview');
-            
-            // Create a range and selection to copy the rendered HTML
-            const range = document.createRange();
-            range.selectNodeContents(signaturePreview);
-            
-            const selection = window.getSelection();
+    function copySignature(event) {
+        const signaturePreview = document.getElementById('signaturePreview');
+
+        // Create a range and selection to copy the rendered HTML
+        const range = document.createRange();
+        range.selectNodeContents(signaturePreview);
+
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        try {
+            // Copy the selected content (this preserves formatting for Outlook)
+            document.execCommand('copy');
+
+            // Show success message
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = '✓ Copied!';
+            btn.classList.remove('bg-green-600', 'hover:bg-green-700');
+            btn.classList.add('bg-green-800');
+
+            setTimeout(function() {
+                btn.textContent = originalText;
+                btn.classList.remove('bg-green-800');
+                btn.classList.add('bg-green-600', 'hover:bg-green-700');
+            }, 2000);
+
+            // Clear selection
             selection.removeAllRanges();
-            selection.addRange(range);
-
-            try {
-                // Copy the selected content (this preserves formatting for Outlook)
-                document.execCommand('copy');
-                
-                // Show success message
-                const btn = event.target;
-                const originalText = btn.textContent;
-                btn.textContent = '✓ Copied!';
-                btn.classList.remove('bg-green-600', 'hover:bg-green-700');
-                btn.classList.add('bg-green-800');
-                
-                setTimeout(function() {
-                    btn.textContent = originalText;
-                    btn.classList.remove('bg-green-800');
-                    btn.classList.add('bg-green-600', 'hover:bg-green-700');
-                }, 2000);
-                
-                // Clear selection
-                selection.removeAllRanges();
-            } catch (err) {
-                alert('Failed to copy. Please select the signature manually and copy it.');
-                console.error('Copy error:', err);
-            }
+        } catch (err) {
+            alert('Failed to copy. Please select the signature manually and copy it.');
+            console.error('Copy error:', err);
         }
+    }
 
-        // Auto-generate on input change
-        document.querySelectorAll('input, textarea').forEach(function(element) {
-            element.addEventListener('input', generateSignature);
-        });
-    </script>
+    // Auto-generate on input change
+    document.querySelectorAll('input, textarea').forEach(function(element) {
+        element.addEventListener('input', generateSignature);
+    });
+</script>
 </body>
 
 </html>
