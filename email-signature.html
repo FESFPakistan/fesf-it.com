@@ -32,7 +32,7 @@
 
 <body class="bg-gradient-to-r from-blue-400 to-blue-700 min-h-screen font-mono flex flex-col">
 <marquee class="font-bold text-lg bg-gray-200 text-black py-2 shadow-md">
-    Email Signature Generator - Create Your Professional Email Signature
+    Email Signature Generator – Create Your Professional Email Signature
 </marquee>
 
 <div class="flex-grow max-w-6xl mx-auto mt-10 p-6 bg-white border border-gray-300 rounded-lg shadow-md mb-10">
@@ -52,7 +52,7 @@
 
             <div>
                 <label for="fullName" class="label-text">Full Name *</label>
-                <input type="text" id="fullName" class="input-field" placeholder="e.g., Zaid Pirwani">
+                <input type="text" id="fullName" class="input-field" placeholder="e.g., Zaid">
             </div>
 
             <div>
@@ -277,37 +277,94 @@
 
     function copySignature(event) {
         const signaturePreview = document.getElementById('signaturePreview');
+        const html = signaturePreview.innerHTML;
+        const text = signaturePreview.innerText || signaturePreview.textContent || '';
 
-        // Create a range and selection to copy the rendered HTML
-        const range = document.createRange();
-        range.selectNodeContents(signaturePreview);
+        // Robustly find the button element (in case inner nodes are clicked)
+        const btn = (event && event.target && event.target.closest) ? event.target.closest('button') : null;
 
-        const selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-
-        try {
-            // Copy the selected content (this preserves formatting for Outlook)
-            document.execCommand('copy');
-
-            // Show success message
-            const btn = event.target;
-            const originalText = btn.textContent;
-            btn.textContent = '✓ Copied!';
-            btn.classList.remove('bg-green-600', 'hover:bg-green-700');
-            btn.classList.add('bg-green-800');
+        // Helper to show copied UI feedback
+        function showCopied(button) {
+            if (!button) return;
+            const originalText = button.textContent;
+            button.textContent = '✓ Copied!';
+            button.classList.remove('bg-green-600', 'hover:bg-green-700');
+            button.classList.add('bg-green-800');
 
             setTimeout(function() {
-                btn.textContent = originalText;
-                btn.classList.remove('bg-green-800');
-                btn.classList.add('bg-green-600', 'hover:bg-green-700');
+                button.textContent = originalText;
+                button.classList.remove('bg-green-800');
+                button.classList.add('bg-green-600', 'hover:bg-green-700');
             }, 2000);
+        }
 
-            // Clear selection
-            selection.removeAllRanges();
-        } catch (err) {
-            alert('Failed to copy. Please select the signature manually and copy it.');
-            console.error('Copy error:', err);
+        // Fallback method using execCommand on a temporary hidden element
+        function fallbackCopy() {
+            const container = document.createElement('div');
+            container.style.position = 'fixed';
+            container.style.pointerEvents = 'none';
+            container.style.opacity = '0';
+            container.innerHTML = html;
+            document.body.appendChild(container);
+
+            const range = document.createRange();
+            range.selectNodeContents(container);
+
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+
+            try {
+                const ok = document.execCommand('copy');
+                sel.removeAllRanges();
+                document.body.removeChild(container);
+                if (ok) {
+                    showCopied(btn);
+                } else {
+                    alert('Failed to copy. Please select the signature manually and copy it.');
+                }
+            } catch (err) {
+                document.body.removeChild(container);
+                sel.removeAllRanges();
+                alert('Failed to copy. Please select the signature manually and copy it.');
+                console.error('Copy error:', err);
+            }
+        }
+
+        // Try modern Clipboard API first (supports HTML when ClipboardItem is available)
+        if (navigator.clipboard && navigator.clipboard.write) {
+            // Prefer writing HTML + plain text
+            try {
+                if (typeof ClipboardItem !== 'undefined') {
+                    const blobHtml = new Blob([html], { type: 'text/html' });
+                    const blobText = new Blob([text], { type: 'text/plain' });
+                    const item = new ClipboardItem({
+                        'text/html': blobHtml,
+                        'text/plain': blobText
+                    });
+                    navigator.clipboard.write([item]).then(function() {
+                        showCopied(btn);
+                    }).catch(function(err) {
+                        // If Clipboard API fails, fallback
+                        console.warn('Clipboard API write failed, falling back:', err);
+                        fallbackCopy();
+                    });
+                } else {
+                    // ClipboardItem not supported — fall back to writeText (plain text) or fallbackCopy
+                    navigator.clipboard.writeText(text).then(function() {
+                        showCopied(btn);
+                    }).catch(function(err) {
+                        console.warn('navigator.clipboard.writeText failed, falling back:', err);
+                        fallbackCopy();
+                    });
+                }
+            } catch (err) {
+                console.warn('Clipboard API error, falling back:', err);
+                fallbackCopy();
+            }
+        } else {
+            // Older browsers: fallback to execCommand approach
+            fallbackCopy();
         }
     }
 
