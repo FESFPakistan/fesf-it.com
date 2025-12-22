@@ -30,8 +30,17 @@
       .test-link {
         @apply bg-orange-500 hover:bg-orange-700 mx-2 px-2 py-1 my-auto border-black rounded shadow text-sm align-middle;
       }
+      .big-text-link {
+        @apply bg-orange-500 hover:bg-orange-700 mx-2 px-2 py-1 my-auto border-black rounded shadow text-xs align-middle;
+      }
       .live-link {
         @apply bg-red-500 hover:bg-red-700 mx-2 px-2 py-1 border-black rounded shadow text-lg align-middle;
+      }
+      .help-link {
+        @apply bg-green-500 hover:bg-green-700 mx-2 px-2 py-1 border-black rounded shadow text-lg align-middle;
+      }
+      .live-link-disabled {
+        @apply bg-gray-400 mx-2 px-2 py-1 border-black rounded shadow text-lg align-middle cursor-not-allowed opacity-60;
       }
     }
   </style>
@@ -42,6 +51,14 @@
   <marquee class="font-bold text-lg bg-gray-200 text-black py-2 shadow-md">
     Welcome to FESF-IT.com Portal!
   </marquee>
+
+  <div class="max-w-6xl mx-auto mt-10 p-4 bg-white border border-gray-300 rounded-lg shadow-md">
+    <div class="flex justify-center">
+      <a href="https://quiz.fesf-it.com/admin/register" target="_blank" rel="nofollow" class="bg-[#464EB8] hover:bg-[#3b43a3] text-white font-bold rounded-lg text-2xl shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center py-5 px-16 w-full">
+        IT Portal Registration
+      </a>
+    </div>
+  </div>
 
   <div class="flex-grow max-w-4xl mx-auto mt-10 p-4 bg-white border border-gray-300 rounded-lg shadow-md">
     <div class="section">
@@ -59,11 +76,17 @@
         <img src="assets/platforms/sms.png" alt="Icon" class="img-class">
         <div>DREAMS</div>
         <div class="text-xs">Deaf Reach Education and <br>Academics Management System</div>
-        <div class="flex w-full mx-auto justify-center">
-          <a href="https://stage-dreams.fesf-it.com/" target="_blank" rel="nofollow"
-             class="test-link">TEST</a>
-          <a href="#" target="_blank" rel="nofollow"
-             class="live-link">LIVE</a>
+        <div class="">
+          <div class="flex w-full mx-auto justify-center">
+            <a href="https://stage-dreams.fesf-it.com/" target="_blank" rel="nofollow"
+              class="test-link">TEST</a>
+            <a href="https://dreams.fesf-it.com" target="_blank" rel="nofollow"
+              class="live-link">LIVE</a>
+            <a href="https://fesforg-my.sharepoint.com/:v:/g/personal/zaid_pirwani_fesf_org_pk/EZ3hNdjJ3dlDjsJue9Qs8jMBMaabiWTK8XN17Mcg9uc4TQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=AvHL6N" target="_blank" rel="nofollow"
+              class="help-link">❓</a>
+          </div>
+          <a href="https://lesson.fesf-it.com" target="_blank" rel="nofollow"
+              class="live-link mt-4 block">LESSON TRACKER</a>
         </div>
       </div>
 
@@ -72,37 +95,34 @@
         <img src="assets/platforms/kolibri.png" alt="Icon" class="img-class">
         <span class="text-black">Kolibri</span>
       </a>
-<!--      <a href="https://stage-lessonplan.fesf-it.com/login" target="_blank" rel="nofollow"-->
-<!--        class="bg-cyan-700 portal-link  hover:bg-red-800">-->
-<!--        <img src="assets/platforms/lesson-plan.png" alt="Icon" class="img-class w-20 ">-->
-<!--        <span>Deaf Reach Lesson Planner</span>-->
-<!--        &lt;!&ndash; <span class="hidden group-hover:block">COMING SOON...</span> &ndash;&gt;-->
-<!--      </a>-->
-      <a href="https://isharay.pk/" target="_blank" rel="nofollow" class=" bg-green-900 portal-link hover:bg-green-950">
-        <img src="assets/platforms/isharay.png" alt="Icon" class="img-class">
-        <span>Isharay.pk</span>
-      </a>
 
-      <a href="https://quiz.psl.org.pk/" target="_blank" rel="nofollow"
-        class="bg-blue-500 portal-link hover:bg-blue-600">
+      <a href="https://quiz.fesf-it.com/" target="_blank" rel="nofollow"
+         class="bg-blue-500 portal-link hover:bg-blue-600">
         <img src="assets/platforms/quiz.png" alt="Icon" class="img-class">
-        <span>Quiz Portal</span>
+        <span class="text-black">Quiz Portal</span>
       </a>
-      <a href="https://new.psl.org.pk/" target="_blank" rel="nofollow"
-        class="bg-green-700 portal-link hover:bg-green-600">
-        <img src="assets/platforms/psl.png" alt="Icon" class="img-class">
-        <span>PSL 2.0 [beta]</span>
-      </a>
-<!--      <a href="https://backend.psl.org.pk/admin" target="_blank" rel="nofollow"-->
-<!--        class="bg-green-500 portal-link hover:bg-green-600">-->
-<!--        <img src="assets/platforms/admin-panel.png" alt="Icon" class="img-class">-->
-<!--        <span>PSL Admin Panel</span>-->
-<!--      </a>-->
-<!--      <a href="https://games.psl.org.pk/" target="_blank" rel="nofollow"-->
-<!--        class="bg-orange-500 portal-link hover:bg-orange-700">-->
-<!--        <img src="assets/platforms/psl-games.png" alt="Icon" class="img-class">-->
-<!--        <span>PSL Games</span>-->
-<!--      </a>-->
+     
+      <div class="portal-link bg-gray-700 hover:bg-gray-800">
+        <img src="assets/platforms/drama.png" alt="Icon" class="img-class">
+        <div>Deaf Reach Asset Management Application</div>
+        <!-- <div class="text-xs">Deaf Reach Asset <br>Management Application</div> -->
+        <div class="flex w-full mx-auto justify-center">
+          <a href="https://stage-asset.fesf-it.com/" target="_blank" rel="nofollow"
+             class="test-link">TEST</a>
+          <span class="live-link-disabled">LIVE</span>
+        </div>
+      </div>
+      
+      <div class="portal-link bg-green-600 hover:bg-green-700">
+        <img src="assets/platforms/cash.png" alt="Icon" class="img-class">
+        <div>Petty Cash System</div>
+        <div class="flex w-full mx-auto justify-center">
+          <a href="https://stage-cash.fesf-it.com/login" target="_blank" rel="nofollow"
+             class="test-link">TEST</a>
+          <span class="live-link-disabled">LIVE</span>
+        </div>
+      </div>
+
     </div>
 
     <!-- Divider -->
@@ -113,10 +133,27 @@
     </div>
 
     <div class="section">
+      <div class="portal-link bg-teal-700 hover:bg-teal-800">
+        <img src="assets/platforms/resource-pack-icon.png" alt="Icon" class="img-class">
+        <div>DLP Content <br> 
+          <small>for SLD Team</small>
+        </div>
+        <div class="flex flex-wrap w-full mx-auto justify-center gap-2 px-2">
+          <a href="https://fesforg.sharepoint.com/sites/DLP-Content/PrePrimary/Forms/AllItems.aspx" target="_blank" rel="nofollow"
+             class="test-link">Pre-Primary</a>
+             <a href="https://fesforg.sharepoint.com/sites/DLP-Content/Primary/Forms/AllItems.aspx" target="_blank" rel="nofollow"
+             class="test-link">Primary</a>
+             <a href="https://fesforg.sharepoint.com/sites/DLP-Content/Secondary/Forms/AllItems.aspx" target="_blank" rel="nofollow"
+             class="test-link">Secondary</a>
+             <a href="https://fesforg.sharepoint.com/sites/DLP-Content/Documents/Forms/AllItems.aspx" target="_blank" rel="nofollow"
+             class="test-link">Documents</a>
+        </div>
+      </div>
       <a href="https://fesforg.sharepoint.com/:f:/s/ResourcePack/EsyldAq24AhKh3E8foKyEHUB8foKMkLrZPa7GzKdjL5zqA?e=bq3dQL"
          class="bg-orange-500 portal-link hover:bg-orange-600">
         <img src="assets/platforms/resource-pack-icon.png" alt="Icon" class="img-class">
         <span>Deaf Reach <br>Resource Pack</span>
+        <span>for Teachers</span>
       </a>
       <a href="academic-coordination-meeting.html" class="bg-pink-500 portal-link hover:bg-pink-600">
         <img src="assets/platforms/meeting.png" alt="Icon" class="img-class">
