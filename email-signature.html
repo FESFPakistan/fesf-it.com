@@ -69,10 +69,10 @@
                 <input type="text" id="jobTitle" class="input-field" placeholder="e.g., IT Manager">
             </div>
 
-            <div>
-                <label for="department" class="label-text">Department</label>
-                <input type="text" id="department" class="input-field" placeholder="e.g., Information Technology">
-            </div>
+<!--            <div>-->
+<!--                <label for="department" class="label-text">Department</label>-->
+<!--                <input type="text" id="department" class="input-field" placeholder="e.g., Information Technology">-->
+<!--            </div>-->
 
             <div class="section-title mt-8">Contact Information</div>
 
@@ -139,7 +139,7 @@
 
         const fullName = document.getElementById('fullName').value || 'Your Name';
         const jobTitle = document.getElementById('jobTitle').value || 'Your Job Title';
-        const department = document.getElementById('department').value;
+        const department = ' - '; // document.getElementById('department').value;
         const mobile = document.getElementById('mobile').value || '+92 345 123 4567';
         // const phone = document.getElementById('phone').value;
         const email = document.getElementById('email').value || 'your.email@fesf.org.pk';
@@ -156,11 +156,11 @@
                 <div style="font-family: Cambria, 'Times New Roman', serif; color: #000;">
                     <div style="font-size:14px; color:#000;">
                         <div style="margin-bottom:8px;">
-                            <span style="display:block; font-style:normal; color:#333; font-size:13px;">Regards,</span>
-                            <span style="display:block; font-style:normal; color:#333; font-size:13px;">&nbsp;</span>
-                            <span style="display:block; font-weight:700; font-size:18px; color:#204f9f;">${escapeHtml(displayName)}</span>
+                            <span style="display:block; font-style:normal; color:#333; font-size:13px;font-family: 'Cambria', 'Times New Roman', serif;">Regards,</span>
+                            <span style="display:block; font-style:normal; color:#333; font-size:13px;font-family: 'Cambria', 'Times New Roman', serif;">&nbsp;</span>
+                            <span style="display:block; font-weight:700; font-size:18px; color:#204f9f;font-family: 'Cambria', 'Times New Roman', serif;">${escapeHtml(displayName)}</span>
 <!--                            <span style="display:block; font-style:normal; color:#333;">${escapeHtml(jobTitle)}${department ? '<span style="display:block;color:#666; font-size:13px;">' + escapeHtml(department) + '</span>' : ''}</span>-->
-                            <span style="display:block; font-style:normal; color:#333;">${escapeHtml(jobTitle)}</span>
+                            <span style="display:block; font-style:normal; color:#333;font-family: Cambria, 'Times New Roman', serif;">${escapeHtml(jobTitle)}</span>
                         </div>
                         <div style="font-size:13px; color:#333;">
                             ${displayPhone ? '☏ ' + escapeHtml(displayPhone) : ''} ${displayPhone && displayEmail ? ' | ' : ''} ${displayEmail ? '✉ <a href="mailto:'+encodeURI(displayEmail)+'" style="color:#204f9f; text-decoration:none;">'+escapeHtml(displayEmail)+'</a>' : ''}
