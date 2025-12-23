@@ -48,6 +48,15 @@
     <div class="grid md:grid-cols-2 gap-8">
         <!-- Input Form -->
         <div class="space-y-6">
+            <!-- Template selector -->
+            <div>
+                <label for="templateSelect" class="label-text">Template</label>
+                <select id="templateSelect" class="input-field" aria-label="Select signature template">
+                    <option value="1" selected>Template 1 — Simple (Cambria)</option>
+                    <!-- <option value="2">Template 2 — Detailed (current)</option> -->
+                </select>
+            </div>
+
             <div class="section-title">Personal Information</div>
 
             <div>
@@ -72,14 +81,14 @@
                 <input type="tel" id="mobile" class="input-field" placeholder="e.g., +92 333 1234567">
             </div>
 
-            <div>
-                <label for="phone" class="label-text">Mobile / Phone 2 (Optional)</label>
-                <input type="tel" id="phone" class="input-field" placeholder="e.g., +92 333 1234567">
-            </div>
+<!--            <div>-->
+<!--                <label for="phone" class="label-text">Mobile / Phone 2 (Optional)</label>-->
+<!--                <input type="tel" id="phone" class="input-field" placeholder="e.g., +92 333 1234567">-->
+<!--            </div>-->
 
             <div>
                 <label for="email" class="label-text">Email Address *</label>
-                <input type="email" id="email" class="input-field" placeholder="e.g., john.doe@fesf.org.pk">
+                <input type="email" id="email" class="input-field" placeholder="e.g., zaid [at] fesf.org.pk">
             </div>
 
 
@@ -124,16 +133,52 @@
         generateSignature();
     });
 
+    // New generateSignature: chooses template and builds HTML accordingly
     function generateSignature() {
+        const template = (document.getElementById('templateSelect') && document.getElementById('templateSelect').value) || '2';
+
         const fullName = document.getElementById('fullName').value || 'Your Name';
         const jobTitle = document.getElementById('jobTitle').value || 'Your Job Title';
         const department = document.getElementById('department').value;
-        const mobile = document.getElementById('mobile').value;
-        const phone = document.getElementById('phone').value;
+        const mobile = document.getElementById('mobile').value || '+92 345 123 4567';
+        // const phone = document.getElementById('phone').value;
         const email = document.getElementById('email').value || 'your.email@fesf.org.pk';
         const website = 'https://www.deafreach.com';
         const whatsapp = document.getElementById('mobile').value;
 
+        if (template === '1') {
+            // Template 1: Simple Cambria signature, single phone and email
+            const displayName = fullName;
+            const displayPhone = mobile || phone || '';
+            const displayEmail = email;
+
+            const template1 = `
+                <div style="font-family: Cambria, 'Times New Roman', serif; color: #000;">
+                    <div style="font-size:14px; color:#000;">
+                        <div style="margin-bottom:8px;">
+                            <span style="display:block; font-style:normal; color:#333; font-size:13px;">Regards,</span>
+                            <span style="display:block; font-style:normal; color:#333; font-size:13px;">&nbsp;</span>
+                            <span style="display:block; font-weight:700; font-size:18px; color:#204f9f;">${escapeHtml(displayName)}</span>
+<!--                            <span style="display:block; font-style:normal; color:#333;">${escapeHtml(jobTitle)}${department ? '<span style="display:block;color:#666; font-size:13px;">' + escapeHtml(department) + '</span>' : ''}</span>-->
+                            <span style="display:block; font-style:normal; color:#333;">${escapeHtml(jobTitle)}</span>
+                        </div>
+                        <div style="font-size:13px; color:#333;">
+                            ${displayPhone ? '☏ ' + escapeHtml(displayPhone) : ''} ${displayPhone && displayEmail ? ' | ' : ''} ${displayEmail ? '✉ <a href="mailto:'+encodeURI(displayEmail)+'" style="color:#204f9f; text-decoration:none;">'+escapeHtml(displayEmail)+'</a>' : ''}
+                        </div>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <a href="${website}" style="text-decoration:none; display:inline-block;">
+                            <img src="https://fesf-it.com/assets/signature-generator-images/deafreach-logo.png" alt="Deaf Reach" width="160" style="display:block; border:0;">
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('signaturePreview').innerHTML = template1;
+            return;
+        }
+
+        // Template 2: existing detailed signature (kept mostly unchanged)
         // Build contact info rows
         let contactRows = '';
 
@@ -145,7 +190,7 @@
                         <img src="https://fesf-it.com/assets/signature-generator-images/phone-icon.png" alt="" width="16" height="16" style="display: block; border: 0;">
                     </td>
                     <td style="padding: 4px 0; font-family: Arial, sans-serif; font-size: 13px; color: #333;">
-                        ${mobile}
+                        ${escapeHtml(mobile)}
                     </td>
                 </tr>`;
         }
@@ -158,7 +203,7 @@
                         <img src="https://fesf-it.com/assets/signature-generator-images/phone-icon.png" alt="" width="16" height="16" style="display: block; border: 0;">
                     </td>
                     <td style="padding: 4px 0; font-family: Arial, sans-serif; font-size: 13px; color: #333;">
-                        ${phone}
+                        ${escapeHtml(phone)}
                     </td>
                 </tr>`;
         }
@@ -171,7 +216,7 @@
                         <img src="https://fesf-it.com/assets/signature-generator-images/email-icon.png" alt="" width="16" height="16" style="display: block; border: 0;">
                     </td>
                     <td style="padding: 4px 0; font-family: Arial, sans-serif; font-size: 13px; color: #333;">
-                        <a href="mailto:${email}" style="color: #0066cc; text-decoration: none;">${email}</a>
+                        <a href="mailto:${escapeHtmlAttrib(email)}" style="color: #0066cc; text-decoration: none;">${escapeHtml(email)}</a>
                     </td>
                 </tr>`;
         }
@@ -185,7 +230,7 @@
                         <img src="https://fesf-it.com/assets/signature-generator-images/link-icon.png" alt="" width="16" height="16" style="display: block; border: 0;">
                     </td>
                     <td style="padding: 4px 0; font-family: Arial, sans-serif; font-size: 13px; color: #333;">
-                        <a href="${website}" style="color: #0066cc; text-decoration: none;">${websiteDisplay}</a>
+                        <a href="${website}" style="color: #0066cc; text-decoration: none;">${escapeHtml(websiteDisplay)}</a>
                     </td>
                 </tr>`;
         }
@@ -229,9 +274,9 @@
                     <tbody>
                         <tr>
                             <td style="padding-right: 16px; vertical-align: top;">
-                                <h2 style="margin: 0 0 4px 0; font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; color: #222;">${fullName}</h2>
+                                <h2 style="margin: 0 0 4px 0; font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; color: #222;">${escapeHtml(fullName)}</h2>
                                 <p style="margin: 0 0 8px 0; font-family: Arial, sans-serif; font-size: 14px; color: #666; font-style: italic;">
-                                    ${jobTitle}${department ? '<br>' + department : ''}
+                                    ${escapeHtml(jobTitle)}${department ? '<br>' + escapeHtml(department) : ''}
                                 </p>
                             </td>
                             <td style="padding: 0 16px; border-left: 3px solid #0066cc;">
@@ -372,6 +417,27 @@
     document.querySelectorAll('input, textarea').forEach(function(element) {
         element.addEventListener('input', generateSignature);
     });
+
+    // Also regenerate when template select changes
+    var tsel = document.getElementById('templateSelect');
+    if (tsel) {
+        tsel.addEventListener('change', generateSignature);
+    }
+
+    // Utility: escape HTML to avoid accidental markup injection in preview
+    function escapeHtml(str) {
+        if (!str && str !== 0) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function escapeHtmlAttrib(str) {
+        return escapeHtml(str).replace(/&quot;/g, '"');
+    }
 </script>
 </body>
 
