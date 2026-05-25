@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -37,7 +38,7 @@
 
 <div class="flex-grow max-w-6xl mx-auto mt-10 p-6 bg-white border border-gray-300 rounded-lg shadow-md mb-10">
     <div class="flex items-center space-x-3 mb-6">
-        <a href="index.html">
+        <a href="index.html" rel="nofollow">
             <img src="https://fesf-it.com/assets/icons/left-arrow-1.png" alt="Back" class="w-auto h-10">
         </a>
         <span class="font-bold">Back to Home</span>
@@ -167,7 +168,7 @@
                         </div>
                     </div>
                     <div style="margin-top:10px;">
-                        <a href="${website}" style="text-decoration:none; display:inline-block;">
+                        <a href="${website}" style="text-decoration:none; display:inline-block;" rel="nofollow">
                             <img src="https://fesf-it.com/assets/signature-generator-images/deafreach-logo.png" alt="Deaf Reach" width="150" style="display:block; border:0;">
                         </a>
                     </div>
@@ -230,7 +231,7 @@
                         <img src="https://fesf-it.com/assets/signature-generator-images/link-icon.png" alt="" width="16" height="16" style="display: block; border: 0;">
                     </td>
                     <td style="padding: 4px 0; font-family: Arial, sans-serif; font-size: 13px; color: #333;">
-                        <a href="${website}" style="color: #0066cc; text-decoration: none;">${escapeHtml(websiteDisplay)}</a>
+                        <a href="${website}" style="color: #0066cc; text-decoration: none;" rel="nofollow">${escapeHtml(websiteDisplay)}</a>
                     </td>
                 </tr>`;
         }
@@ -241,7 +242,7 @@
         // Facebook - hardcoded
         socialLinks += `
                 <td style="padding: 0 8px 0 0;">
-                    <a href="https://www.facebook.com/deafreachprogram/" >
+                    <a href="https://www.facebook.com/deafreachprogram/" rel="nofollow">
                         <img src="https://fesf-it.com/assets/signature-generator-images/face-ico.png" width="40">
                     </a>
                 </td>`;
@@ -249,7 +250,7 @@
         // LinkedIn - hardcoded
         socialLinks += `
                 <td style="padding: 0 8px 0 0;">
-                    <a href="https://www.linkedin.com/company/fesf/">
+                    <a href="https://www.linkedin.com/company/fesf/" rel="nofollow">
                         <img src="https://fesf-it.com/assets/signature-generator-images/ico-link.png" width="40">
                     </a>
                 </td>`;
@@ -259,7 +260,7 @@
             const whatsappUrl = `https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`;
             socialLinks += `
                     <td style="padding: 0 8px 0 0;">
-                        <a href="${whatsappUrl}">
+                        <a href="${whatsappUrl}" rel="nofollow">
                             <img src="https://fesf-it.com/assets/signature-generator-images/whatsapp-icon.png" width="40">
                         </a>
                     </td>`;

@@ -3,121 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Privacy Policy for Family Educational Services Foundation internal services and applications">
-    <title>Privacy Policy - Family Educational Services Foundation</title>
+    <meta name="description" content="Privacy Policy for internal FESF and Deaf Reach systems, portals, and digital tools.">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <title>Privacy Policy - FESF / Deaf Reach</title>
     <style>
+        :root {
+            --bg: #f3f6fb;
+            --panel: #ffffff;
+            --text: #243042;
+            --muted: #6b7280;
+            --line: #dbe3ef;
+            --primary: #1d4ed8;
+            --primary-soft: #eff6ff;
+            --accent: #b45309;
+            --accent-soft: #fff7ed;
+            --success: #166534;
+            --success-soft: #f0fdf4;
+        }
+
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
-            padding: 20px;
+        html {
+            scroll-behavior: smooth;
         }
 
-        .container {
-            max-width: 900px;
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(180deg, #e8eef9 0%, var(--bg) 100%);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 24px;
+        }
+
+        .page {
+            max-width: 980px;
             margin: 0 auto;
-            background-color: #fff;
-            padding: 40px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+            overflow: hidden;
+        }
+
+        .hero {
+            padding: 36px 40px 28px;
+            background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);
+            color: #fff;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
 
         h1 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 15px;
+            margin: 0 0 10px;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
         }
 
-        .last-updated {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 30px;
-            font-size: 0.9em;
+        .meta {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .content {
+            padding: 32px 40px 40px;
+        }
+
+        .intro,
+        .info-box,
+        .note-box,
+        .contact-box {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin: 0 0 24px;
         }
 
         .intro {
-            background-color: #ecf0f1;
-            padding: 20px;
-            border-left: 4px solid #3498db;
-            margin-bottom: 30px;
-            border-radius: 4px;
+            background: var(--primary-soft);
+            border-left: 5px solid var(--primary);
         }
 
-        h2 {
-            color: #2c3e50;
-            margin-top: 35px;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #ecf0f1;
+        .info-box {
+            background: #f8fafc;
         }
 
-        h3 {
-            color: #34495e;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
-
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        ul {
-            margin-left: 25px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        strong {
-            color: #2c3e50;
-        }
-
-        .highlight-box {
-            background-color: #fff9e6;
-            border-left: 4px solid #f39c12;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
+        .note-box {
+            background: var(--accent-soft);
+            border-left: 5px solid #f59e0b;
         }
 
         .contact-box {
-            background-color: #e8f5e9;
-            padding: 25px;
-            border-radius: 8px;
-            margin-top: 40px;
-            border: 2px solid #4caf50;
+            background: var(--success-soft);
+            border-left: 5px solid #16a34a;
         }
 
-        .contact-box h2 {
-            color: #2e7d32;
-            margin-top: 0;
-            border-bottom: 2px solid #4caf50;
+        section {
+            margin-top: 30px;
         }
 
-        .contact-info {
-            margin-top: 15px;
+        h2 {
+            margin: 0 0 12px;
+            font-size: 1.45rem;
+            color: #0f172a;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--line);
         }
 
-        .contact-info p {
+        h3 {
+            margin: 18px 0 8px;
+            font-size: 1.05rem;
+            color: #1f2937;
+        }
+
+        p {
+            margin: 0 0 12px;
+        }
+
+        ul,
+        ol {
+            margin: 0 0 12px 22px;
+            padding: 0;
+        }
+
+        li {
             margin-bottom: 8px;
         }
 
+        strong {
+            color: #0f172a;
+        }
+
         a {
-            color: #3498db;
+            color: var(--primary);
             text-decoration: none;
         }
 
@@ -125,181 +154,185 @@
             text-decoration: underline;
         }
 
-        .section-number {
-            color: #3498db;
-            font-weight: bold;
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.16);
+            font-size: 0.88rem;
+        }
+
+        .footer {
+            margin-top: 36px;
+            padding-top: 18px;
+            border-top: 1px solid var(--line);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .footer-links a {
+            font-weight: 600;
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 20px;
+            body {
+                padding: 12px;
             }
 
-            h1 {
-                font-size: 2em;
+            .hero,
+            .content {
+                padding-left: 20px;
+                padding-right: 20px;
             }
 
-            h2 {
-                font-size: 1.5em;
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="last-updated">Last Updated: February 13, 2026</p>
-
-        <div class="intro">
-            <p>This Privacy Policy outlines how <strong>Family Educational Services Foundation</strong> ("we," "us," or "the Organization") collects, uses, handles, and protects data within our internal web tools, automation portals, and mobile applications (collectively, "the Services").</p>
-            <p>By using these Services, you acknowledge that you have read, understood, and agree to the terms outlined below and our general Terms and Conditions.</p>
-        </div>
-
-        <h2><span class="section-number">1.</span> Scope of Use</h2>
-        <p>Our Services are strictly designed for the use of <strong>authorized employees, partners, and affiliates</strong> only. Access is granted for professional and educational purposes and is subject to organizational oversight and compliance requirements.</p>
-        <div class="highlight-box">
-            <strong>Important:</strong> Unauthorized access, misuse, or sharing of credentials may result in immediate account suspension and potential disciplinary action.
-        </div>
-
-        <h2><span class="section-number">2.</span> Access and Registration</h2>
-        <h3>Approval-Based Access</h3>
-        <p>While some portals allow for self-registration, all accounts require manual review and approval by the Organization's IT Department or designated administrators.</p>
-
-        <h3>Right of Revocation</h3>
-        <p>The Organization reserves the right to suspend or terminate access to any Service at any time, for any reason, without prior notice. Reasons may include, but are not limited to:</p>
-        <ul>
-            <li>Termination of employment or partnership</li>
-            <li>Violation of usage policies</li>
-            <li>Security concerns or suspicious activity</li>
-            <li>Extended periods of inactivity</li>
-        </ul>
-
-        <h2><span class="section-number">3.</span> Information We Collect</h2>
-        <p>We collect and process the following types of information:</p>
-        <ul>
-            <li><strong>Account Information:</strong> Name, email address, phone number, employee ID, designation, and department</li>
-            <li><strong>Device Information:</strong> IP address, device type, operating system, browser type, and app version (for mobile applications)</li>
-            <li><strong>Usage Data:</strong> Login timestamps, activity logs, feature usage, and performance metrics</li>
-            <li><strong>Work-Related Content:</strong> Files, documents, messages, forms, and other data created or uploaded through the Services</li>
-        </ul>
-
-        <h2><span class="section-number">4.</span> How We Use Your Information</h2>
-        <p>Information collected through our Services is used for the following purposes:</p>
-        <ul>
-            <li>Providing, maintaining, and improving the Services</li>
-            <li>User authentication and access control</li>
-            <li>Monitoring system performance and security</li>
-            <li>Troubleshooting technical issues</li>
-            <li>Generating reports and analytics for organizational decision-making</li>
-            <li>Ensuring compliance with organizational policies and legal requirements</li>
-            <li>Communicating important updates, maintenance schedules, or policy changes</li>
-        </ul>
-
-        <h2><span class="section-number">5.</span> Data Collection and Ownership</h2>
-        <h3>Work Product</h3>
-        <p>Any data, files, communications, or information uploaded, created, or transmitted through our Services are considered work-related data and organizational assets.</p>
-
-        <h3>Organizational Property</h3>
-        <p>In accordance with our internal policies and employment agreements, all data processed through these Services is the exclusive property of the Organization.</p>
-
-        <h3>No Right to Deletion</h3>
-        <p>Because the data is organizational property and may be subject to legal, regulatory, or operational requirements, users do not have a right to request the deletion or export of data uploaded during the course of their professional duties. However, personal data unrelated to work may be subject to review upon request.</p>
-
-        <h2><span class="section-number">6.</span> Data Retention and Security</h2>
-        <p>We take data integrity and security seriously and implement the following protections:</p>
-
-        <h3>Security Measures</h3>
-        <ul>
-            <li>All data is encrypted at rest and in transit using industry-standard protocols (TLS/SSL)</li>
-            <li>Regular security audits and vulnerability assessments</li>
-            <li>Access controls based on role-based permissions</li>
-            <li>Multi-factor authentication where applicable</li>
-            <li>Regular backup procedures to prevent data loss</li>
-            <li>Network monitoring and intrusion detection systems</li>
-        </ul>
-
-        <h3>Data Retention</h3>
-        <p>We retain data for as long as it is deemed necessary for business operations, legal compliance, or as required by applicable regulations. Retention periods may vary based on data type and organizational needs.</p>
-
-        <h3>No Third-Party Sharing</h3>
-        <p>We never sell your data. We do not share data with third parties unless:</p>
-        <ul>
-            <li>Required by law, court order, or legal process</li>
-            <li>Necessary for specific, authorized service integrations (e.g., cloud hosting providers, authentication services)</li>
-            <li>Needed to protect the rights, property, or safety of the Organization or its employees</li>
-        </ul>
-
-        <h2><span class="section-number">7.</span> User Responsibilities</h2>
-        <p>Users of our Services are expected to:</p>
-        <ul>
-            <li>Maintain the confidentiality of login credentials</li>
-            <li>Use the Services only for authorized professional purposes</li>
-            <li>Report any security incidents or suspicious activity immediately</li>
-            <li>Comply with all organizational policies and applicable laws</li>
-            <li>Not attempt to access unauthorized areas or data</li>
-            <li>Not share access credentials with unauthorized individuals</li>
-        </ul>
-
-        <h2><span class="section-number">8.</span> Cookies and Tracking Technologies</h2>
-        <p>Our web-based Services may use cookies and similar tracking technologies to:</p>
-        <ul>
-            <li>Maintain user sessions and authentication states</li>
-            <li>Remember user preferences and settings</li>
-            <li>Analyze usage patterns to improve user experience</li>
-            <li>Monitor system performance and security</li>
-        </ul>
-        <p>Users can manage cookie preferences through their browser settings, though disabling certain cookies may affect functionality.</p>
-
-        <h2><span class="section-number">9.</span> Compliance with Play Store Requirements</h2>
-        <p>For applications distributed via the Google Play Store, we collect minimal device information strictly for functional performance, security monitoring, and troubleshooting. No personal browsing data or unrelated device information is harvested.</p>
-        <p>Our mobile applications comply with Google Play's data safety requirements and user privacy standards.</p>
-
-        <h2><span class="section-number">10.</span> Data Breach Notification</h2>
-        <p>In the event of a data breach that affects user information, we will:</p>
-        <ul>
-            <li>Investigate the incident promptly and take necessary remediation steps</li>
-            <li>Notify affected users within a reasonable timeframe</li>
-            <li>Report to relevant authorities as required by applicable regulations</li>
-            <li>Implement additional security measures to prevent future incidents</li>
-        </ul>
-
-        <h2><span class="section-number">11.</span> Children's Privacy</h2>
-        <p>Our Services are not intended for children under the age of 13. We do not knowingly collect personal information from children. In cases where educational services involve minors, data is collected and managed in accordance with applicable child protection laws and organizational safeguarding policies.</p>
-
-        <h2><span class="section-number">12.</span> Changes to This Privacy Policy</h2>
-        <p>We reserve the right to update this Privacy Policy at any time to reflect changes in our practices, Services, or legal requirements. When we make material changes, we will:</p>
-        <ul>
-            <li>Update the "Last Updated" date at the top of this policy</li>
-            <li>Notify users via email or in-app notifications where appropriate</li>
-            <li>Post the updated policy on our website and relevant platforms</li>
-        </ul>
-        <p>Continued use of the Services after such changes constitutes acceptance of the updated policy.</p>
-
-        <h2><span class="section-number">13.</span> Your Rights</h2>
-        <p>While organizational data remains the property of the Organization, you may have certain rights regarding your personal information, subject to applicable laws and organizational policies:</p>
-        <ul>
-            <li><strong>Access:</strong> Request information about what personal data we hold about you</li>
-            <li><strong>Correction:</strong> Request correction of inaccurate personal information</li>
-            <li><strong>Restriction:</strong> Request restriction of processing under certain circumstances</li>
-            <li><strong>Objection:</strong> Object to processing of your personal data in certain situations</li>
-        </ul>
-        <p>To exercise these rights, please contact our IT Department using the information below.</p>
-
-        <div class="contact-box">
-            <h2>Contact Information</h2>
-            <div class="contact-info">
-                <p>For questions regarding this policy, data protection inquiries, or technical support, please contact:</p>
-                <p><strong>IT Department</strong><br>
-                Family Educational Services Foundation</p>
-                <p><strong>Email:</strong> it [dot] manager [at] fesf [dot] org [dot] pk</a></p>
-                <p><strong>Website:</strong> <a href="https://fesf-it.com" target="_blank">fesf-it.com</a></p>
-                <p>We aim to respond to all inquiries within 5 business days.</p>
+    <main class="page">
+        <header class="hero">
+            <span class="eyebrow">Internal Privacy Policy</span>
+            <h1>Privacy Policy</h1>
+            <p class="meta">For FESF / Deaf Reach internal systems, online tools, and digital platforms</p>
+            <div class="tag-row" aria-label="Policy highlights">
+                <span class="tag">Official work use only</span>
+                <span class="tag">Company-owned records</span>
+                <span class="tag">Activity may be logged</span>
+                <span class="tag">Requests handled internally</span>
             </div>
-        </div>
+        </header>
 
-        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ecf0f1; text-align: center; color: #7f8c8d; font-size: 0.9em;">
-            <p>&copy; 2026 Family Educational Services Foundation. All rights reserved.</p>
+        <div class="content">
+            <div class="intro">
+                <p><strong>Effective date:</strong> May 10, 2026</p>
+                <p>This policy explains how <strong>Family Educational Services Foundation</strong> ("FESF", "we", "us", or "the Organization") handles information collected through internal web tools, portals, apps, forms, and other digital systems used by FESF / Deaf Reach teams (collectively, the "Services").</p>
+                <p>These Services are for <strong>official work purposes only</strong>. By using them, you acknowledge that your activity, submissions, uploads, and related records may be retained and treated as official work material.</p>
+            </div>
+
+            <section>
+                <h2>1. Scope and Acceptable Use</h2>
+                <p>Access to the Services is limited to authorized staff, approved partners, and other approved users. The Services must be used only for work-related tasks, internal coordination, reporting, administration, learning, and other authorized organizational purposes.</p>
+                <div class="note-box">
+                    <p><strong>Important:</strong> Personal use, unauthorized sharing, credential misuse, bypassing controls, or using these Services for non-work activity is prohibited and may result in access revocation, disciplinary action, or other corrective steps.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>2. Information We Collect</h2>
+                <p>Depending on the Service you use, we may collect and retain the following types of information:</p>
+                <ul>
+                    <li><strong>Account and identity data:</strong> Name, organizational email, phone number, department, designation, employee ID, and related profile details.</li>
+                    <li><strong>Activity and audit data:</strong> Login times, IP address, device details, timestamps, approvals, edits, comments, submissions, and system logs.</li>
+                    <li><strong>Content and records:</strong> Files, forms, messages, notes, documents, images, attachments, and other materials uploaded or created in the Services.</li>
+                    <li><strong>Technical data:</strong> Browser type, operating system, app version, session data, error traces, and performance metrics.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. How We Use Information</h2>
+                <p>We use the collected information to operate and improve the Services, including to:</p>
+                <ul>
+                    <li>Provide access, authentication, and account administration.</li>
+                    <li>Support internal workflows, approvals, coordination, and reporting.</li>
+                    <li>Monitor system performance, reliability, and security.</li>
+                    <li>Troubleshoot errors and technical issues.</li>
+                    <li>Maintain records for operational, audit, compliance, and management purposes.</li>
+                    <li>Communicate service notices, policy updates, and administrative instructions.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>4. Ownership of Data and Work Product</h2>
+                <div class="info-box">
+                    <p>All materials created, uploaded, submitted, stored, transmitted, or recorded through the Services are treated as <strong>official organizational work product</strong> unless we explicitly state otherwise in writing.</p>
+                    <p>The Organization owns the Services, system records, and operational data generated through them to the maximum extent permitted by applicable law and internal policy.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>5. Retention, Recording, and Monitoring</h2>
+                <p>The Services may log, record, and retain user actions, submitted content, approvals, and system events as part of official records. This may include screenshots, history trails, change logs, audit records, and related metadata where the system supports such features.</p>
+                <p>Retention periods are based on operational needs, legal obligations, internal governance, and recordkeeping requirements. Some records may be preserved for longer periods when needed for audit, investigation, continuity, or compliance purposes.</p>
+            </section>
+
+            <section>
+                <h2>6. Data Requests and Deletion Requests</h2>
+                <p>General data export, portability, or deletion requests for official work records <strong>will not be fulfilled as a routine matter</strong>, because the data belongs to the Organization and may be required for business, audit, legal, or operational reasons.</p>
+                <p>Deletion of records may be considered only in special cases and only with written approval from <strong>HR and Management</strong> on a case-by-case basis. Such requests must be submitted through official communication channels and must be sent from an official organization email address to the <strong>HR</strong> team and <strong>IT Administration</strong>.</p>
+                <div class="note-box">
+                    <p><strong>Note:</strong> Approval for deletion is exceptional, not automatic, and may be refused where retention is required for policy, audit, legal, contractual, or operational reasons.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>7. Sharing and Third-Party Access</h2>
+                <p>We do not sell data. Access to information may be granted only to authorized internal personnel or approved service providers who need the data to support the Services, security, hosting, backups, maintenance, or related operational functions.</p>
+                <p>Data may also be disclosed when required by law, court order, regulatory obligation, or to protect the rights, safety, systems, or property of the Organization, its staff, or its users.</p>
+            </section>
+
+            <section>
+                <h2>8. Security Measures</h2>
+                <p>We use administrative, technical, and physical safeguards designed to protect the Services and the information they contain. These measures may include access controls, password policies, role-based permissions, logging, backups, monitoring, and encryption where available.</p>
+                <p>No system is completely secure, but unauthorized access, misuse, or tampering may result in access suspension and further action.</p>
+            </section>
+
+            <section>
+                <h2>9. User Responsibilities</h2>
+                <p>Users of the Services must:</p>
+                <ul>
+                    <li>Use the Services only for official work purposes.</li>
+                    <li>Keep credentials confidential and secure.</li>
+                    <li>Provide accurate information and keep records up to date where required.</li>
+                    <li>Follow HR, IT, security, and operational policies.</li>
+                    <li>Report suspected misuse, security issues, or data incidents promptly.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>10. Changes to This Policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect changes in the Services, operational practices, or internal requirements. If changes are material, we may communicate them through the Services or official organizational channels.</p>
+                <p>Continued use of the Services after a policy update means you accept the updated version.</p>
+            </section>
+
+            <section>
+                <h2>11. Contact Information</h2>
+                <div class="contact-box">
+                    <p>For policy questions, internal data handling queries, or special deletion requests, contact the appropriate internal team through your official organization email and include both <strong>HR</strong> and <strong>IT Administration</strong> where required.</p>
+                    <p><strong>Website:</strong> <a href="index.html">fesf-it.com portal</a></p>
+                    <p><strong>Reminder:</strong> Requests should be made only through official channels.</p>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <div>&copy; 2026 Family Educational Services Foundation. All rights reserved.</div>
+                <nav class="footer-links" aria-label="Policy links">
+                    <a href="index.html">Portal</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                </nav>
+            </footer>
         </div>
-    </div>
+    </main>
 </body>
 </html>
